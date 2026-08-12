@@ -48,4 +48,57 @@ document.addEventListener('DOMContentLoaded', () => {
             1.0: '#8b0000'  // Dark Red - Danger
         }
     }).addTo(map);
+
+    // Mock Routing and Prediction Logic
+    const findRouteBtn = document.getElementById('findRouteBtn');
+    const predictionResult = document.getElementById('predictionResult');
+    const safetyScore = document.getElementById('safetyScore');
+    const safetyDetails = document.getElementById('safetyDetails');
+    let currentRoute = null;
+
+    findRouteBtn.addEventListener('click', () => {
+        const originVal = document.getElementById('origin').value || 'Lucknow';
+        const destVal = document.getElementById('destination').value || 'Kanpur';
+
+        findRouteBtn.textContent = 'Analyzing Route...';
+        findRouteBtn.style.opacity = '0.7';
+
+        // Simulate network delay for AI prediction
+        setTimeout(() => {
+            // Remove old route if exists
+            if (currentRoute) map.removeLayer(currentRoute);
+
+            // Mock route from Lucknow to Kanpur
+            const latlngs = [
+                [26.8467, 80.9462], // Lucknow
+                [26.7500, 80.8000], 
+                [26.6500, 80.6000],
+                [26.5500, 80.4500],
+                [26.4499, 80.3319]  // Kanpur
+            ];
+
+            // Draw polyline
+            currentRoute = L.polyline(latlngs, {color: '#4facfe', weight: 5, opacity: 0.8}).addTo(map);
+            
+            // Zoom to route
+            map.fitBounds(currentRoute.getBounds(), { padding: [50, 50] });
+
+            // Display Prediction UI
+            predictionResult.style.display = 'block';
+            
+            // Calculate a mock safety score based on the "heatData" collision
+            // We'll simulate a 78% Safe score for this route
+            safetyScore.textContent = '78% Safe';
+            safetyScore.style.color = '#00ff00';
+            safetyDetails.innerHTML = `
+                <strong>Analysis:</strong> The AI detected moderate risk zones near the Kanpur outskirts. 
+                <br><br>
+                ✅ Route avoids major dark spots.<br>
+                ⚠️ Suggest caution on Highway 27 after 10 PM.
+            `;
+
+            findRouteBtn.textContent = 'Find Safe Route';
+            findRouteBtn.style.opacity = '1';
+        }, 1500);
+    });
 });
