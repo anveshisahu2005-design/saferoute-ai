@@ -35,6 +35,7 @@
                 <h3 style="margin:0 0 0.5rem 0; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.1em; color:#888;">AI Safety Prediction</h3>
                 <div id="safetyScore" style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: #fff;"></div>
                 <p id="safetyDetails" style="margin:0; font-size: 0.85rem; color:#aaa; line-height: 1.4;"></p>
+                <button class="route-btn" id="completeJourneyBtn" style="margin-top: 1.5rem; width: 100%; background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);">Complete Journey & Rate</button>
             </div>
         </aside>
 
@@ -47,6 +48,35 @@
                 <p class="tips-content" id="tipText">Always share your live location with a trusted contact when traveling late.</p>
             </div>
         </main>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal-overlay" id="feedbackModal">
+        <div class="modal-content" id="modalContentInner">
+            <h2>Rate Your Journey</h2>
+            <p>Your feedback helps our AI keep women safe by learning which routes are actually secure.</p>
+            
+            <div class="rating-group">
+                <label>Street Lighting</label>
+                <select id="rateLighting">
+                    <option value="5">Excellent (Well Lit)</option>
+                    <option value="3">Moderate</option>
+                    <option value="1">Poor (Very Dark)</option>
+                </select>
+            </div>
+            
+            <div class="rating-group">
+                <label>Crowd Density</label>
+                <select id="rateCrowd">
+                    <option value="5">Active & Safe</option>
+                    <option value="3">Somewhat Empty</option>
+                    <option value="1">Completely Deserted</option>
+                </select>
+            </div>
+            
+            <button class="route-btn" id="submitFeedbackBtn" style="width: 100%; margin-top: 1.5rem;">Submit Feedback</button>
+            <button class="close-btn" id="closeModalBtn">Skip</button>
+        </div>
     </div>
 
     <!-- Leaflet JS -->

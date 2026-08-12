@@ -130,4 +130,38 @@ document.addEventListener('DOMContentLoaded', () => {
             tipsBox.classList.remove('hidden');
         }, 500); // Wait for fade out to complete
     }, 8000); // Rotate every 8 seconds
+
+    // Modal Logic
+    const completeJourneyBtn = document.getElementById('completeJourneyBtn');
+    const feedbackModal = document.getElementById('feedbackModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const submitFeedbackBtn = document.getElementById('submitFeedbackBtn');
+    const modalContentInner = document.getElementById('modalContentInner');
+
+    completeJourneyBtn.addEventListener('click', () => {
+        feedbackModal.classList.add('active');
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+        feedbackModal.classList.remove('active');
+    });
+
+    submitFeedbackBtn.addEventListener('click', () => {
+        submitFeedbackBtn.textContent = 'Submitting...';
+        
+        // Simulate sending data to backend AI model
+        setTimeout(() => {
+            modalContentInner.innerHTML = `
+                <div style="text-align:center; padding: 1rem 0;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">💖</div>
+                    <h2 style="color:#fff; margin-bottom: 0.5rem;">Thank You!</h2>
+                    <p style="color:#aaa; font-size: 0.9rem; line-height: 1.5; margin-bottom: 2rem;">
+                        Your feedback has been fed back into the SafeRoute AI.<br><br>
+                        Together, we are making the streets safer for everyone.
+                    </p>
+                    <button class="route-btn" style="width:100%" onclick="document.getElementById('feedbackModal').classList.remove('active')">Close</button>
+                </div>
+            `;
+        }, 1200);
+    });
 });
