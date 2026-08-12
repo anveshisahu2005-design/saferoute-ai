@@ -144,9 +144,12 @@ html, body {
   z-index: 1;
 }
 
-/* Map specific overrides for dark mode blending */
+/* Map specific overrides for dark mode blending and fixing tile shifts */
 .leaflet-container {
   background: #0a0a0a !important;
+}
+.leaflet-container * {
+  box-sizing: content-box; /* Fixes tile shifting issues */
 }
 .leaflet-bar a {
   background-color: #1a1a1a !important;
@@ -181,7 +184,12 @@ html, body {
   width: 350px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.8);
   z-index: 1000;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.tips-container.hidden {
+  opacity: 0;
+  transform: translateY(15px) scale(0.98);
 }
 
 .tips-title {

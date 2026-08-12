@@ -118,15 +118,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentTipIndex = 0;
 
     setInterval(() => {
-        // Fade out animation
-        tipsBox.style.opacity = '0';
+        // Trigger fade out
+        tipsBox.classList.add('hidden');
         
         setTimeout(() => {
             // Change text while invisible
             currentTipIndex = (currentTipIndex + 1) % tips.length;
             tipText.textContent = tips[currentTipIndex];
-            // Fade in animation
-            tipsBox.style.opacity = '1';
+            
+            // Trigger fade in
+            tipsBox.classList.remove('hidden');
         }, 500); // Wait for fade out to complete
     }, 8000); // Rotate every 8 seconds
 });
