@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add Heatmap Layer
     const heat = L.heatLayer(heatData, {
-        radius: 40,
-        blur: 25,
-        maxZoom: 10,
+        radius: 25, // Optimized for less lag
+        blur: 15,   // Optimized for less lag
+        maxZoom: 12,
         gradient: {
             0.2: '#00ff00', // Green - Safe
             0.5: '#ffff00', // Yellow - Moderate Risk
@@ -101,4 +101,32 @@ document.addEventListener('DOMContentLoaded', () => {
             findRouteBtn.style.opacity = '1';
         }, 1500);
     });
+
+    // Safety Tips Rotation Logic
+    const tips = [
+        "Always share your live location with a trusted contact when traveling late.",
+        "Stay in well-lit areas and avoid taking shortcuts through dark alleys.",
+        "Keep your phone charged and easily accessible at all times.",
+        "If you feel you are being followed, change direction and head to a crowded area like a store or cafe.",
+        "Trust your instincts. If a route feels unsafe, take an alternative path even if it takes longer.",
+        "Avoid wearing headphones on empty streets so you can hear your surroundings.",
+        "Keep emergency numbers (e.g., 1091 Women Helpline) on speed dial."
+    ];
+
+    const tipText = document.getElementById('tipText');
+    const tipsBox = document.getElementById('tipsBox');
+    let currentTipIndex = 0;
+
+    setInterval(() => {
+        // Fade out animation
+        tipsBox.style.opacity = '0';
+        
+        setTimeout(() => {
+            // Change text while invisible
+            currentTipIndex = (currentTipIndex + 1) % tips.length;
+            tipText.textContent = tips[currentTipIndex];
+            // Fade in animation
+            tipsBox.style.opacity = '1';
+        }, 500); // Wait for fade out to complete
+    }, 8000); // Rotate every 8 seconds
 });

@@ -156,3 +156,49 @@ html, body {
 .leaflet-bar a:hover {
   background-color: #2a2a2a !important;
 }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#predictionResult {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Tip Box Styles */
+.tips-container {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid #4facfe;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+  z-index: 1000;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.tips-title {
+  color: #4facfe;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tips-content {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
