@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Synopsis - SafeRoute AI</title>
+    <style>
+        /* General Body Settings */
+        body {
+            background-color: #555;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: "Times New Roman", Times, serif;
+        }
+        
+        /* A4 Page Styling */
+        .page {
+            background-color: white;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 1in;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            /* Body text settings */
+            font-size: 12pt;
+            line-height: 1.5;
+            text-align: justify;
+            position: relative;
+        }
+        
+        /* Print settings */
+        @media print {
+            body { background-color: white; margin: 0; padding: 0; display: block; }
+            .page { 
+                margin: 0; 
+                box-shadow: none; 
+                border: none; 
+                padding: 0; 
+                width: 100%; 
+                min-height: 100vh;
+                page-break-after: always;
+            }
+            @page { 
+                size: A4; 
+                margin: 1in; 
+            }
+            .page-break { page-break-before: always; }
+        }
+
+        /* Paragraphs */
+        p {
+            margin-top: 0;
+            margin-bottom: 6pt;
+        }
+
+        /* Headings */
+        h1.cover-title {
+            font-size: 20pt;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 40%;
+            margin-bottom: 20px;
+        }
+        h1.project-title {
+            font-size: 18pt;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+        }
+        h2.main-heading {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-top: 24pt;
+            margin-bottom: 12pt;
+            text-align: left;
+            text-transform: uppercase;
+        }
+        h3.sub-heading {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-top: 18pt;
+            margin-bottom: 6pt;
+            text-align: left;
+        }
+
+        /* Tables and Captions */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11pt;
+            margin-top: 12pt;
+            margin-bottom: 6pt;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .caption {
+            font-size: 11pt;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 12pt;
+        }
+
+        /* Mermaid Diagrams */
+        .mermaid {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Utility */
+        .center {
+            text-align: center;
+        }
+        ul, ol {
+            margin-bottom: 6pt;
+        }
+        li {
+            margin-bottom: 6pt;
+        }
+    </style>
+    <!-- Include Mermaid.js for Diagrams -->
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+
+    <!-- PAGE 1: COVER PAGE -->
+    <div class="page">
+        <h1 class="cover-title">PROJECT SYNOPSIS</h1>
+        <h1 class="project-title">SafeRoute AI: Crowdsourced Women's Safety & Navigation System</h1>
+        
+        <div style="margin-top: 30%; text-align: center; font-size: 14pt; font-weight: bold;">
+            <p>Submitted By:</p>
+            <p>Anveshi Sahu</p>
+            <p>[Your Roll Number / ID]</p>
+        </div>
+
+        <div style="margin-top: 20%; text-align: center; font-size: 14pt;">
+            <p><strong>Under the Guidance of:</strong></p>
+            <p>[Guide Name]</p>
+            <p>[Designation]</p>
+        </div>
+        
+        <div style="position: absolute; bottom: 1in; width: calc(100% - 2in); text-align: center; font-size: 14pt; font-weight: bold;">
+            <p>[Institution / College Name]</p>
+            <p>2024 - 2025</p>
+        </div>
+    </div>
+
+    <!-- PAGE 2: INTRODUCTION & OBJECTIVES -->
+    <div class="page">
+        <h2 class="main-heading">1. Introduction</h2>
+        <p>In modern urban environments, ensuring the safety of women during daily commutes remains a pressing challenge. Conventional navigation systems (like Google Maps or Apple Maps) prioritize the shortest or fastest routes, failing to account for environmental safety factors such as street lighting, crowd density, and historical incident data. </p>
+        <p><strong>SafeRoute AI</strong> is a dynamic navigation platform designed to bridge this gap. By leveraging open-source routing algorithms, real-time geocoding, and crowdsourced community intelligence, the system provides users with the safest possible routes rather than simply the fastest. The integration of continuous user feedback ensures that the system dynamically adapts to changing urban landscapes, providing highly accurate safety predictions.</p>
+
+        <h2 class="main-heading">2. Problem Statement</h2>
+        <p>Current mapping solutions optimize for time and distance, often routing pedestrians or solo female travelers through isolated, poorly lit, or historically unsafe areas, particularly at night. There is a critical lack of a dedicated navigation framework that assesses routes based on empirical and crowdsourced safety metrics.</p>
+
+        <h2 class="main-heading">3. Objectives</h2>
+        <ul>
+            <li>To develop a responsive, web-based platform that calculates navigation routes prioritizing user safety.</li>
+            <li>To implement a dynamic "Safety Heatmap" visualizing high-risk vs. safe zones using clustered spatial data.</li>
+            <li>To generate predictive safety scores for any given route using real-time parameter analysis.</li>
+            <li>To establish a continuous "Community Feedback Loop" allowing users to anonymously rate route conditions (e.g., lighting, crowd density, police presence) to refine future AI predictions.</li>
+        </ul>
+
+        <h2 class="main-heading">4. Tech Stack & Software Specifications</h2>
+        <ul>
+            <li><strong>Frontend Environment:</strong> HTML5, CSS3, Vanilla JavaScript (ES6+).</li>
+            <li><strong>Mapping Engine:</strong> Leaflet.js with CartoDB Dark Matter tiles.</li>
+            <li><strong>Routing API:</strong> Open Source Routing Machine (OSRM) API.</li>
+            <li><strong>Geocoding API:</strong> OpenStreetMap Nominatim API.</li>
+            <li><strong>Backend Architecture:</strong> Supabase (PostgreSQL), providing secure REST APIs, Row Level Security (RLS), and database hosting.</li>
+            <li><strong>Hosting/Deployment:</strong> Vercel (Edge Network).</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 3: METHODOLOGY AND DATA FLOW -->
+    <div class="page">
+        <h2 class="main-heading">5. Proposed System Architecture</h2>
+        <p>The proposed system follows a decoupled Client-Server architecture. The client-side (Frontend) handles user inputs, map rendering via Leaflet, and API communication. When a user requests a route, the system geocodes the input using Nominatim, fetches the polyline geometry via OSRM, and overlays it onto the map. The backend (Supabase) acts as a centralized PostgreSQL repository storing historical safety reports, user sessions, and geographical heat markers.</p>
+
+        <h3 class="sub-heading">5.1 Backend & Database Design</h3>
+        <p>The backend is powered by <strong>Supabase (PostgreSQL)</strong>. The database is designed to handle geospatial data efficiently. Data gets stored and processed in the following manner:</p>
+        <ul>
+            <li><strong>Incidents/Feedback Storage:</strong> When a user submits a post-journey rating, a JSON payload containing the origin, destination, lighting score, crowd density score, and overall safety rating is POSTed to the Supabase endpoint.</li>
+            <li><strong>Data Aggregation:</strong> A PostgreSQL function aggregates feedback for overlapping coordinate regions, generating a normalized "Safety Index".</li>
+            <li><strong>Heatmap Generation:</strong> The frontend fetches the aggregated Safety Index coordinates to generate the `leaflet-heat` layer, displaying red zones (low safety index) and green zones (high safety index).</li>
+        </ul>
+
+        <h3 class="sub-heading">5.2 Data Flow Diagram (DFD)</h3>
+        
+        <div class="caption">Figure 1: Level 0 DFD (Context Diagram)</div>
+        <div class="mermaid">
+            flowchart LR
+                USER((User))
+                SYS[SafeRoute AI System]
+                DB[(Supabase PostgreSQL)]
+                API_G[Nominatim Geocoding]
+                API_R[OSRM Routing]
+                
+                USER -- "Inputs Origin & Destination" --> SYS
+                SYS -- "Fetches Coordinates" --> API_G
+                API_G -- "Returns Lat/Lng" --> SYS
+                SYS -- "Requests Route" --> API_R
+                API_R -- "Returns Polyline" --> SYS
+                SYS -- "Renders Safe Route & Score" --> USER
+                
+                USER -- "Submits Journey Feedback" --> SYS
+                SYS -- "Stores Rating Data" --> DB
+                DB -- "Updates Heatmap Data" --> SYS
+        </div>
+    </div>
+
+    <!-- PAGE 4: ER DIAGRAM AND CONCLUSION -->
+    <div class="page">
+        <h3 class="sub-heading">5.3 Entity Relationship (ER) Diagram</h3>
+        <p>The core entities managed by the Supabase PostgreSQL database include Users, Routes, and Feedback instances. The relationships are designed in Third Normal Form (3NF).</p>
+
+        <div class="caption">Figure 2: Entity Relationship Diagram</div>
+        <div class="mermaid">
+            erDiagram
+                USER {
+                    uuid id PK
+                    string email
+                    datetime created_at
+                }
+                ROUTE {
+                    uuid id PK
+                    string origin
+                    string destination
+                    geometry path
+                }
+                FEEDBACK {
+                    uuid id PK
+                    uuid route_id FK
+                    int lighting_score
+                    int crowd_score
+                    int security_score
+                    int overall_safety
+                    datetime submitted_at
+                }
+                
+                USER ||--o{ FEEDBACK : "submits"
+                ROUTE ||--o{ FEEDBACK : "receives"
+        </div>
+
+        <h2 class="main-heading">6. Database Schema (Tables)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Table Name</th>
+                    <th>Primary Key</th>
+                    <th>Foreign Keys</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>users</strong></td>
+                    <td>id (uuid)</td>
+                    <td>None</td>
+                    <td>Stores authenticated user information and preferences.</td>
+                </tr>
+                <tr>
+                    <td><strong>routes</strong></td>
+                    <td>id (uuid)</td>
+                    <td>None</td>
+                    <td>Stores unique routes queried by users including geo-spatial polyline data.</td>
+                </tr>
+                <tr>
+                    <td><strong>feedback</strong></td>
+                    <td>id (uuid)</td>
+                    <td>route_id (routes.id)</td>
+                    <td>Stores crowdsourced ratings for lighting, crowd density, and safety.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="caption">Table 1: Supabase Relational Schema Overview</div>
+
+        <h2 class="main-heading">7. Future Enhancements</h2>
+        <ul>
+            <li><strong>SOS Integration:</strong> Adding a panic button that instantly broadcasts live location to emergency contacts and local authorities.</li>
+            <li><strong>Machine Learning:</strong> Training an LSTM model on the PostgreSQL data to predict route safety dynamically based on the time of day.</li>
+            <li><strong>Voice Navigation:</strong> Implementing turn-by-turn voice directions so users do not need to hold their phones out in high-risk areas.</li>
+        </ul>
+
+        <h2 class="main-heading">8. Conclusion</h2>
+        <p>SafeRoute AI successfully demonstrates the feasibility of combining open-source routing APIs with crowdsourced data to prioritize pedestrian safety over mere distance efficiency. By establishing a continuous feedback loop and utilizing a robust PostgreSQL backend via Supabase, the application creates a scalable, evolving ecosystem that actively works to make urban navigation safer for women.</p>
+    </div>
+
+</body>
+</html>
