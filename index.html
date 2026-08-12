@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeRoute AI</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="shield">🛡️</span> SafeRoute AI
+            </div>
+            <div class="tagline">
+                Prioritizing your safety over speed.
+            </div>
+
+            <div class="search-container">
+                <div class="input-group">
+                    <label>Origin</label>
+                    <input type="text" id="origin" placeholder="Enter starting point..." />
+                </div>
+                <div class="input-group">
+                    <label>Destination</label>
+                    <input type="text" id="destination" placeholder="Enter destination..." />
+                </div>
+                <button class="route-btn" id="findRouteBtn">Find Safe Route</button>
+            </div>
+        </aside>
+
+        <main class="map-container">
+            <div id="map"></div>
+        </main>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Leaflet Heat JS -->
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <!-- App JS -->
+    <script src="app.js"></script>
+</body>
+</html>

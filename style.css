@@ -1,9 +1,42 @@
+:root {
+  --background: #050505;
+  --foreground: #ededed;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .container {
   display: flex;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
-  background-color: #050505;
 }
 
 .sidebar {
@@ -40,19 +73,19 @@
   font-weight: 400;
 }
 
-.searchContainer {
+.search-container {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.inputGroup {
+.input-group {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
 }
 
-.inputGroup label {
+.input-group label {
   color: #a0a0a0;
   font-size: 0.75rem;
   font-weight: 600;
@@ -60,7 +93,7 @@
   letter-spacing: 0.1em;
 }
 
-.inputGroup input {
+.input-group input {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0.9rem 1rem;
@@ -71,17 +104,13 @@
   transition: all 0.2s ease;
 }
 
-.inputGroup input:focus {
+.input-group input:focus {
   border-color: #4facfe;
   background: rgba(255, 255, 255, 0.06);
   box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.15);
 }
 
-.inputGroup input::placeholder {
-  color: #555;
-}
-
-.routeBtn {
+.route-btn {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: #000;
   font-weight: 700;
@@ -92,32 +121,38 @@
   cursor: pointer;
   margin-top: 1rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  letter-spacing: -0.01em;
 }
 
-.routeBtn:hover {
+.route-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
 }
 
-.routeBtn:active {
+.route-btn:active {
   transform: translateY(1px);
 }
 
-.mapContainer {
+.map-container {
   flex-grow: 1;
   position: relative;
   background: #0a0a0a;
 }
 
-.mapLoading {
+#map {
   height: 100%;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  font-size: 1.1rem;
-  background: #050505;
-  font-weight: 500;
+  z-index: 1;
+}
+
+/* Map specific overrides for dark mode blending */
+.leaflet-container {
+  background: #0a0a0a !important;
+}
+.leaflet-bar a {
+  background-color: #1a1a1a !important;
+  color: #fff !important;
+  border-bottom-color: #333 !important;
+}
+.leaflet-bar a:hover {
+  background-color: #2a2a2a !important;
 }
